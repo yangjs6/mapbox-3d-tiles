@@ -25,7 +25,7 @@
         "require": "./dist/mapbox-3d-tiles.umd.js"
     },
     "scripts": {
-        "dev": "vite serve example",
+        "dev": "vite serve example --host",
         "build": "tsc && vite build"
     },
     "sideEffects": false,

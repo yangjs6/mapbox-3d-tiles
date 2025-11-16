@@ -33,11 +33,15 @@ var tileset = null;
 
 const center = [118.91083364082562,32.116922266350315];
 
-// TODO: 需要将数据发布到服务器上，并修改url
+// 方法1：使用本地文件， new URL(relative, base) 提前计算成绝对路径
+const relativePath = './data/splat-3dtiles/NNU_2_opt/tileset.json';
+const tilesetUrl = new URL(relativePath, window.location.href).href;
+// 方法2：使用文件服务， 需要将数据发布到服务器上，并修改url
+// const tilesetUrl = 'http://localhost:8804/splat-3dtiles/NNU_2_opt/tileset.json'
+
 const tilesetOptions = {    
     id: 'test-model1',
-    // url: 'http://localhost:8804/splat-3dtiles/NNU_2/tileset.json',
-    url: 'http://localhost:8804/splat-3dtiles/NNU_2_opt/tileset.json',
+    url: tilesetUrl,
     isGaussianSplatting: true, // 默认为 false，如果模型有3DGS效果，请设置为 true
     maxGaussianSplatingCount: 4096 * 4096, // 当数据量大时，可调高到 8192 * 8192
     downloadMaxJobs: 4,
